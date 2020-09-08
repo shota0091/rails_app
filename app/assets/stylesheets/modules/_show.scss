@@ -1,0 +1,59 @@
+.player{
+  display: flex;
+  &__main{
+    width: 75%;
+    &__contents{
+      margin:0 35px;
+      &__title{
+        font-weight: bold;
+        font-size: 30px;
+        margin:10px 0;
+        border-bottom:1px solid red;
+        display: inline-block;
+      }
+      &__body{
+        font-size:15px;
+        margin-bottom: 10px;
+      }
+      &__video{
+        height: 500px;
+        .VideoPlayr{
+          width: 100%;
+          height: 100%;
+          padding-top:20px;
+          border-top:1px solid lightgray;
+        }
+      }
+    &__menus{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      &__commtent{
+        height: 50px;
+        width: 85%;
+        .input-text{
+          width: 85%;
+        }
+      }
+      &__content{
+          width: calc(100% - 85%);
+          display: flex;
+          justify-content: space-between;
+        }
+    }
+    }
+  }
+  &__comments{
+    width: calc(100% - 75%);
+    border:5px solid black;
+    margin: 15px;
+
+    &__CommentsArea{
+      height: 95%;
+      margin:20px;
+      background-color:white;
+      border:1px solid black;
+      background-color: lightgray;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.wrapper__VideoSide
+  - @posts.each do |post|
+    .wrapper__VideoSide__contents
+      .wrapper__VideoSide__contents.video
+        = link_to post_path(post) do
+          = video_tag post.video.to_s, :size => "250x150"
+        .wrapper__VideoSide__contents__content
+          .wrapper__VideoSide__contents__content.title
+            = link_to post.title, post_path(post),class:"Btn"
+          .wrapper__VideoSide__contents__content.created_at
+            = post.created_at.strftime('%Y/%m/%d')

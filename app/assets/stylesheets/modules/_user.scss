@@ -1,0 +1,35 @@
+.MemberRegister{
+  font-family: 'Hannotate TC',sans-serif;
+  background-color:lightgray;
+  padding:50px 200px;
+  height: 100%;
+  &__page{
+    background-color:white;
+    text-align: center;
+    padding:20px 0;
+    &__title{
+      padding-bottom: 30px;
+    }
+    &__form{
+      .FormField{
+        padding-bottom: 20px;
+        .FormField__group{
+          width: 50%;
+          border-radius: 10px;
+        }
+      }
+      .actions{
+        .SubmitBtn{
+          width: 50%;
+          background-color:skyblue;
+          border-radius: 10px;
+        }
+      }
+    }
+    &__SignIn{
+      font-size: 13px;
+      padding-top:15px;
+      
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.MemberRegister
+  .MemberRegister__page
+    .MemberRegister__page__title
+      %h1.log
+        TECH:VIDEO
+      %h6.text
+        動画を投稿しよう
+    .MemberRegister__page__form
+      = form_with model: @user, url: user_registration_path, id: 'new-user', class: 'new_user',local: true do |f|
+        .FormField
+          = f.text_field :name, autofocus: true,placeholder: "name", class: "FormField__group"
+
+        .FormField
+          = f.email_field :email,placeholder: "email address", class: "FormField__group"
+
+        .FormField
+          = f.password_field :password,autocomplete: "off",placeholder: "password", class: "FormField__group"
+
+        .FormField
+          = f.password_field :password,autocomplete: "off",placeholder: "one more password", class: "FormField__group"
+
+        .actions
+          = f.submit "Sign up", class: "SubmitBtn"
+
+    .MemberRegister__page__SignIn
+      アカウントお持ちの方
+      = link_to "サインインする", new_user_session_path

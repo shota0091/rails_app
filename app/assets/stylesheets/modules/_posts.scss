@@ -1,0 +1,60 @@
+.wrapper{
+  height: 100vh;
+  display: flex;
+  &__MenuBar{
+    width: 200px;
+    background-color:white;
+    border-right: 1px solid skyblue ;
+    &__UserSide{
+      height: 50px;
+      display:flex;
+      align-items: center;
+      display:block;
+      list-style: none;
+    &__menu{
+      font-size:25px;
+      padding-top: 20px;
+      border-bottom:1px solid red;
+    }
+    &__home{
+      padding-top:15px;
+      font-size: 20px;
+    }
+    &__account{
+      padding-top:15px;
+      font-size: 20px;
+    }
+    &__group{
+      padding-top:15px;
+      font-size: 20px;
+    }
+    &__history{
+      padding-top:15px;
+      font-size: 20px;
+    }
+    &__mylist{
+      padding-top:15px;
+      font-size: 20px;
+    }
+      .fas{
+        padding-right:20px;
+      }
+    }
+    
+  }
+  &__VideoSide{
+    width:calc(100% - 200px);
+    &__contents{
+      display: inline-flex;
+      align-items: center;
+      margin: 10px;
+      &__content{
+        padding-left: 10px;
+        .title{
+          font-weight: bold;
+          font-size:15px;
+        }
+      }
+    }
+  }
+}

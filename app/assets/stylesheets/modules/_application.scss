@@ -1,0 +1,123 @@
+.Btn{
+  text-decoration:none;
+}
+.header{
+  height: 70px;
+  width: 100%;
+  display:flex;
+  border-bottom: 1px solid skyblue;
+  &__bar{
+    width: 100%;
+    height: 30px;
+    margin:20px;
+    display: flex;
+    justify-content: space-between;
+    &__logo{
+      font-family: 'Hannotate TC',sans-serif;
+      text-decoration:none;
+      font-size: bold;
+      font-size: 20px;
+    }
+    &__SearchBox{
+      width: 50%;
+      .search-input{
+        width: 80%;
+      }
+    }
+  &__item{
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    &__send{
+      text-decoration: none;
+      border:1px solid skyblue;
+      border-radius: 10px;
+      padding:10px;
+      background-color:skyblue
+    }
+    &__outBtn{
+      text-decoration: none;
+      border:1px solid skyblue;
+      border-radius: 10px;
+      padding:10px;
+      background-color:skyblue
+    }
+  }
+  }
+}
+
+.footer{
+  height: 50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-top:1px solid skyblue;
+  &__logo{
+    font-family: 'Hannotate TC',sans-serif;
+    text-decoration:none;
+    &__since{
+      font-size:9px;
+      text-align: center;
+      color:lightgray
+    }
+  }
+}
+
+.top{
+  height:100%;
+  width: 100%;
+  position: relative;
+  background-color:#fff001;
+  &__CatchCopy{
+    position: absolute;
+    top:15%;
+    left:5%;
+    font-family: 'HanziPen SC',sans-serif;
+    font-size:70px;
+    color:white;
+  }
+  &__image{
+      width:100%;
+      &__picter{
+        max-width: 100%;
+        height: auto;
+        display:flex;
+      }
+    }
+  &__content{
+    &__box{
+      background-color:white;
+      height: 75px;
+      margin:0px 100px;
+      padding-top:5px ;
+      border-top:15px solid #fff001;
+      text-align:center;
+      font-family: 'Impact',sans-serif;
+      font-size:220%;
+    }
+    &__explanation{
+      margin:15px 100px 0;
+      background-color: white;
+      height: 200px;
+      &__text{
+        
+        font-size:100%;
+        text-align: center;
+        padding-top:15px;
+        font-family: 'Impact',sans-serif;
+      }
+    }
+    &__info{
+      margin:15px 100px 0;
+      background-color: white;
+      height: 200px;
+      border-bottom:15px solid #fff001;
+      text-align:center;
+      &__title{
+        font-size: 200%;
+        font-family: 'Bradley Hand',sans-serif;
+      }
+    }
+  }
+}

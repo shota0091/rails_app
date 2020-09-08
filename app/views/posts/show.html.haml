@@ -1,0 +1,22 @@
+.player
+  .player__main
+    .player__main__contents
+      %h2.player__main__contents__title
+        = @post.title
+      .player__main__contents__body
+        = @post.body
+      .player__main__contents__video
+        %iframe{class: "VideoPlayr",src: @post.video.to_s, frameborder: "0", allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allow: "fullscreen" }
+      .player__main__contents__menus
+        %form.player__main__contents__menus__commtent
+          %input{type: "text", class:"input-text",placehoder:"コメントを入力"}
+          %input{type: "submit", class:"input-send"}
+        .player__main__contents__menus__content
+          = link_to "#", class:"Btn" do
+            = icon('fas', 'heart')
+          = link_to "#", class:"Btn" do
+            = icon('fas', 'list')
+          = link_to icon('fas', 'trash-alt'),post_path(@post.id), method: :delete,  class:"Btn"
+  .player__comments
+    .player__comments__CommentsArea
+      

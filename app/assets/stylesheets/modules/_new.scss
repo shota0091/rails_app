@@ -1,0 +1,32 @@
+.form{
+  &__area{
+    height: 400px;
+    &__video{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &__title{
+        margin-top:20px;
+      }
+      &__body{
+        margin-top:20px;
+        width: 500px;
+        height: 100px;
+      }
+      &__video{
+        cursor: pointer;
+        margin:20px 0;
+      }  
+      &__caution{
+        height: 70px;
+        margin-top:50px;
+        font-family: 'TsukuARdGothic-Regular',sans-serif;
+      }      
+    }
+  }
+  &__text{
+    text-align: center;
+    font-size:30px;
+    font-family: 'TsukuARdGothic-Regular',sans-serif;
+  }
+}

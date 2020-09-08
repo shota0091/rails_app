@@ -1,0 +1,28 @@
+.wrapper__MenuBar
+  %ul.wrapper__MenuBar__UserSide
+    %li.wrapper__MenuBar__UserSide__menu
+      MENU
+    %li.wrapper__MenuBar__UserSide__home
+      = link_to "/", class:"Btn" do
+        = icon('fas', 'home')
+        %span<>
+        home
+    %li.wrapper__MenuBar__UserSide__account
+      = link_to "#", class:"Btn" do
+        = icon('fas', 'user')
+        account
+    %li.wrapper__MenuBar__UserSide__group
+      = link_to "#", class:"Btn" do
+        = icon('fas', 'users')
+        %span<>
+        community
+    %li.wrapper__MenuBar__UserSide__history
+      = link_to "#", class:"Btn" do
+        = icon('fas', 'history')
+        %span<>
+        history
+    %li.wrapper__MenuBar__UserSide__mylist
+      = link_to "#", class:"Btn" do
+        = icon('fas', 'list')
+        %span<>
+        mylist
