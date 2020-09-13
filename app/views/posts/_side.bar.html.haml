@@ -8,9 +8,10 @@
         %span<>
         home
     %li.wrapper__MenuBar__UserSide__account
-      = link_to "#", class:"Btn" do
+      = link_to "users/#{current_user.id}", class:"Btn" do
         = icon('fas', 'user')
-        account
+        = current_user.name
+        %span<>さん
     %li.wrapper__MenuBar__UserSide__group
       = link_to "#", class:"Btn" do
         = icon('fas', 'users')

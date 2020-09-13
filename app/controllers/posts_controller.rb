@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   
   def index
-    @posts = Post.all
+    @posts = Post.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -19,6 +19,10 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @random = Post.order("RAND()").limit(20)
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user)
+    @comments_count = Comment.where(post_id: @post.id).count
   end
   
   def destroy
@@ -26,8 +30,8 @@ class PostsController < ApplicationController
     @post.destroy
   end
   
-    private
-    def post_params
-      params.require(:post).permit(:title, :body, :video)
-    end
+private
+  def post_params
+    params.require(:post).permit(:title, :body, :video).merge(user_id: current_user.id)
+  end
 end

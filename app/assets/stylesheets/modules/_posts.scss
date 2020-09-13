@@ -44,6 +44,7 @@
   }
   &__VideoSide{
     width:calc(100% - 200px);
+    overflow: scroll;
     &__contents{
       display: inline-flex;
       align-items: center;
