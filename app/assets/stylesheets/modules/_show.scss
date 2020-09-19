@@ -1,3 +1,6 @@
+.Like{
+  color:palevioletred;
+}
 .player{
   display: flex;
   &__main{
@@ -58,12 +61,24 @@
         border-top: 1px solid red;
         padding:10px 0 0 10px;
         text-align: start;
-        &__user{
-          font-size:12px;
-        }
-        &__time{
-          font-size: 12px;
-          padding-bottom: 10px;
+        &__image{
+          display: flex;
+          align-items: center;
+          .image-icon{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
+          .CommentSide{
+            margin:10px;
+            &__user{
+              font-size:12px;
+            }
+            &__time{
+              font-size: 12px;
+              padding-bottom: 10px;
+            }
+          }
         }
       }
     }
@@ -79,8 +94,6 @@
       overflow: scroll;
       .ListContens{
         display: flex;
-        &__video{
-        }
         .ListTitel{
           padding: 12px 0 0 10px;
           &__time{

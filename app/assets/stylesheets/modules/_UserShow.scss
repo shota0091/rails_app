@@ -1,0 +1,48 @@
+.main{
+  display: flex;
+  height: 70vh;
+}
+.UserPage{
+  &__contents{
+    display:flex;
+
+    margin: 30px;
+    .UserImage{
+      .image-icon{
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+      }
+    }
+    .UserName{
+      width: 70%;
+      font-size:20px;
+      margin-left: 25px;
+      text-align: center;
+      &__CurrentUser{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        font-size:30px;
+        &__Edit{
+          margin-left: 10px;
+          .EditBtn{
+            font-size:17px;
+          }
+        }
+      }
+      .UserProfile{
+        text-align: start;
+        padding-top: 25px;
+        margin-right: 250px;
+        border-top:1px solid red;
+        &__UserBody{
+          white-space: pre-wrap;
+          overflow: scroll;
+          font-size:15px
+        }
+      }
+    }
+  }
+}

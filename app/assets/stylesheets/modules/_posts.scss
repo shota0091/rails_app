@@ -1,3 +1,7 @@
+.LinkUser{
+  text-decoration: none;
+  color:black;
+}
 .wrapper{
   height: 100vh;
   display: flex;
@@ -48,9 +52,11 @@
     &__contents{
       display: inline-flex;
       align-items: center;
+      
       margin: 10px;
       &__content{
         padding-left: 10px;
+        
         .title{
           font-weight: bold;
           font-size:15px;

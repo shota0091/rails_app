@@ -1,0 +1,11 @@
+- if current_user.already_list?(@post)
+  .list
+    = link_to icon('fa', 'list-alt'),post_list_path(@post),class: "list", method: :delete
+    .list__UnList
+      マイリスを削除
+- else
+  .list
+    = link_to icon('far', 'list-alt'),post_lists_path(@post),lass: "list",method: :post
+    .list__mylist
+      マイリスに追加
+    

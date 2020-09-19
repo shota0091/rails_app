@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  
+
   def index
     @posts = Post.includes(:user).order("created_at DESC")
   end
@@ -26,12 +26,17 @@ class PostsController < ApplicationController
   end
   
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
+    post = Post.find(params[:id])
+    post.destroy
   end
   
+  def terms
+  end
+
 private
   def post_params
     params.require(:post).permit(:title, :body, :video).merge(user_id: current_user.id)
   end
+
+
 end

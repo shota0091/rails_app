@@ -7,19 +7,20 @@
         = @post.body
         .player__main__contents__body__name
           投稿者：
-          = @post.user.name
+          = link_to @post.user.name, "/users/#{@post.user_id}", class: "LinkUser"
       .player__main__contents__video
         %iframe{class: "VideoPlayr",src: @post.video.to_s, frameborder: "0", allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allow: "fullscreen" }
       .player__main__contents__menus
         .player__main__contents__menus__commtent
           = form_with(model:[@post, @comment]) do |form|
             = form.text_field :text, {class: "input-text"}
-            %input{type:"submit", class:"form__submit", value:"コメント"}
+            %input{type:"submit", class:"form__submit", value:"投稿"}
         .player__main__contents__menus__content
-          = link_to icon('fas', 'heart'),"#", class:"Btn" 
-          = link_to icon('fas', 'list'), "#", class:"Btn"
+          = render "likes/like"
+          = @post.likes.count
+          = render "lists/list"
           - if user_signed_in? && current_user.id == @post.user_id
-            = link_to icon('fas', 'trash-alt'),post_path(@post.id), method: :delete,  class:"Btn"
+            = link_to icon('fas', 'trash-alt'),post_path(@post.id), method: :DELETE,class:"Btn"
     .player__main__comments
       NEW COMMENTS
     .player__main__comments__CommentsCount
@@ -27,15 +28,21 @@
       = @comments_count
       .player__main__comments__contents
         - @comments.each do |c|
-          .player__main__comments__contents__comments
-            コメント：
-            = c.text
-          .player__main__comments__contents__user
-            ユーザー：
-            = c.user.name
-          .player__main__comments__contents__time
-            投稿日：
-            = c.created_at
+          .player__main__comments__contents__image
+            - if c.user.image?
+              = image_tag c.user.image.url, class:"image-icon"
+            - else
+              = image_tag "/assets/default-avatar.jpg", class: "image-icon" 
+            .CommentSide
+              .player__main__comments__contents__comments
+                コメント：
+                = c.text
+              .player__main__comments__contents__user
+                投稿者：
+                = link_to c.user.name, "/users/#{c.user_id}", class: "LinkUser"
+              .player__main__comments__contents__time
+                投稿日：
+                = c.created_at
   .player__movie
     ほかの動画
     .player__movie__MoViseList
@@ -44,9 +51,8 @@
           = link_to post_path(post), class:".ListContens__video" do
             = video_tag post.video.to_s,:size => "200x150"
           .ListTitel
-            投稿人：
-            = post.title
+            投稿者：
+            = link_to post.user.name, "/users/#{post.user_id}", class: "LinkUser"
             .ListTitel__time
               投稿日：
               = post.created_at.strftime('%Y/%m/%d')
-              
