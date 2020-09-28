@@ -1,3 +1,7 @@
+.LinkUser{
+  text-decoration: none;
+  color:black;
+}
 .wrapper{
   height: 100vh;
   display: flex;
@@ -24,10 +28,6 @@
       padding-top:15px;
       font-size: 20px;
     }
-    &__group{
-      padding-top:15px;
-      font-size: 20px;
-    }
     &__history{
       padding-top:15px;
       font-size: 20px;
@@ -44,15 +44,35 @@
   }
   &__VideoSide{
     width:calc(100% - 200px);
+    overflow: scroll;
     &__contents{
       display: inline-flex;
       align-items: center;
+      padding-left: 10px;
+      width: 375px;
+      overflow-x: auto;
+      white-space: nowrap;
       margin: 10px;
       &__content{
         padding-left: 10px;
         .title{
           font-weight: bold;
           font-size:15px;
+        }
+        .name{
+          font-size:12px;
+        }
+        .created_at{
+          font-size:12px;
+        }
+        .commnet{
+          font-size: 10px;
+        }
+        .like{
+          font-size:10px;
+        }
+        .list{
+          font-size:10px;
         }
       }
     }

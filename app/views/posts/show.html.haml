@@ -3,20 +3,63 @@
     .player__main__contents
       %h2.player__main__contents__title
         = @post.title
+      .player__main__contents__name
+        = link_to "投稿者：#{@post.user.name}", "/users/#{@post.user_id}", class: "LinkUser"
       .player__main__contents__body
         = @post.body
       .player__main__contents__video
-        %iframe{class: "VideoPlayr",src: @post.video.to_s, frameborder: "0", allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allow: "fullscreen" }
+        %iframe{class: "VideoPlayr",src: @post.video.to_s, frameborder: "0", allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allow: "fullscreen" ,id: "new-video"}
       .player__main__contents__menus
-        %form.player__main__contents__menus__commtent
-          %input{type: "text", class:"input-text",placehoder:"コメントを入力"}
-          %input{type: "submit", class:"input-send"}
+        .player__main__contents__menus__commtent
+          = form_with(model:[@post, @comment], local: true, id: "new_comment") do |form|
+            = form.text_field :text, class: "input-text"
+            %input{type:"submit", class:"form__submit", value:"投稿"}
         .player__main__contents__menus__content
-          = link_to "#", class:"Btn" do
-            = icon('fas', 'heart')
-          = link_to "#", class:"Btn" do
-            = icon('fas', 'list')
-          = link_to icon('fas', 'trash-alt'),post_path(@post.id), method: :delete,  class:"Btn"
-  .player__comments
-    .player__comments__CommentsArea
-      
+          %div{id: "like_buttons_#{@post.id}"}
+            = render partial: "likes/like", locals: {post: @post}
+          %div{id: "list_buttons_#{@post.id}"}
+            = render partial: "lists/list", locals: {post: @post}
+          - if user_signed_in? && current_user.id == @post.user_id
+            = link_to icon('fas', 'trash-alt'),post_path(@post.id), method: :DELETE,class:"Btn"
+            = link_to icon('fas', 'edit'),edit_post_path(@post.id),method: :get , class: "UserLink"
+    .player__main__comments
+      コメント数：
+      #comment-count= @comments_count
+      .player__main__comments__contents
+        .CommentSide
+          - @comments.each do |c|
+            .Comment__image
+              .player__main__comments__contents__image
+                = image_tag c.user.image.url, class:"image-icon",alt: "/assets/default-avatar.jpg" 
+                .CommentBody
+                  .player__main__comments__contents__comments
+                    コメント：
+                    = c.text
+                  .player__main__comments__contents__user
+                    投稿者：
+                    = link_to c.user.name, "/users/#{c.user_id}", class: "LinkUser"
+                  .player__main__comments__contents__time
+                    投稿日：
+                    = c.created_at.strftime('%Y/%m/%d %H:%M:%S')
+  .player__movie
+    ほかの動画
+    .player__movie__MoViseList
+      - @random.each do |post|
+        .ListContens
+          = link_to post_path(post), class:".ListContens__video" do
+            = video_tag post.video.to_s,:size => "200x150"
+          .ListTitel
+            投稿者：
+            = link_to post.user.name, "/users/#{post.user_id}", class: "LinkUser"
+            .ListTitel__time
+              投稿日：
+              = post.created_at.strftime('%Y/%m/%d')
+            .ListTitel__commnet
+              コメント数：
+              = post.comments.count
+            .ListTitel__like
+              いいね：
+              = post.likes.count
+            .ListTitel__list
+              マイリスト 
+              = post.lists.count

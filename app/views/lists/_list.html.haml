@@ -1,0 +1,6 @@
+- if current_user.already_list?(post)
+  = link_to icon('fa', 'list-alt'),post_list_path(post_id: post.id, id: post.lists[0].id),class: "list", method: :delete,remote: true
+  = @post.lists.count
+- else
+  = link_to icon('far', 'list-alt'),post_lists_path(@post),lass: "list",method: :post,remote: true
+  = @post.lists.count
