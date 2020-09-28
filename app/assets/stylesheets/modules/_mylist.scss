@@ -1,0 +1,35 @@
+.LogInUser{
+  text-align: center;
+  width:calc(100% - 200px);
+  height: 40px;
+  margin-top: 20px;
+  padding-left: 20px;
+  font-size:30px;
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  &__contents{
+    width: 100%;
+    overflow: scroll;
+    display: flex;
+    &__list{
+      margin: 10px 10px;
+      .HistoryVideo-user{
+        font-size: 20px;
+        color:black;
+        .UserLink{
+        text-decoration: none;
+        }
+      }
+      .HistoryVideo-title{
+        font-size: 17px;
+      }
+      .HistoryVideo-time{
+        font-size: 12px;
+        color:lightgray;
+      }
+      .HistoryVideo-like{
+        font-size: 15px;
+        color:red;
+        }
+    }
+  }
+}

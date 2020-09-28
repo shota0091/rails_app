@@ -12,18 +12,15 @@
         = icon('fas', 'user')
         = current_user.name
         %span<>さん
-    %li.wrapper__MenuBar__UserSide__group
-      = link_to "#", class:"Btn" do
-        = icon('fas', 'users')
-        %span<>
-        community
     %li.wrapper__MenuBar__UserSide__history
-      = link_to "#", class:"Btn" do
+      = link_to  "/users/#{current_user.id}/history", class:"Btn" do
         = icon('fas', 'history')
         %span<>
-        history
+        = current_user.name
+        さんの投稿動画
     %li.wrapper__MenuBar__UserSide__mylist
-      = link_to "#", class:"Btn" do
+      = link_to "/users/#{current_user.id}/mylist", class:"Btn" do
         = icon('fas', 'list')
         %span<>
-        mylist
+        = current_user.name
+        さんのマイリス

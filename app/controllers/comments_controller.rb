@@ -2,15 +2,12 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @post = Post.find(params[:post_id])
-    Comment.create(comment_params)
-
-  if @post.save
-    redirect_to post_path(@post)
-  else
-    flash.now[:alert] = 'コメントを入力してください。'
+    @comment = Comment.create(comment_params)
+    respond_to do |format|
+      format.html { redirect_to post_path(params[:post_id])  }
+      format.json
+    end
   end
-end
 
 private
   def comment_params

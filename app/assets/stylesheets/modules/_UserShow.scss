@@ -6,7 +6,8 @@
   &__contents{
     display:flex;
 
-    margin: 30px;
+    margin-top: 30px;
+    padding-left: 30px;
     .UserImage{
       .image-icon{
         border-radius: 50%;
@@ -25,6 +26,9 @@
         justify-content: space-between;
         text-align: center;
         font-size:30px;
+        &__id{
+          font-size:20px;
+        }
         &__Edit{
           margin-left: 10px;
           .EditBtn{

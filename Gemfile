@@ -60,3 +60,5 @@ gem 'bootstrap', '~> 5.0.0.alpha1'
 gem "font-awesome-sass"
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
+gem 'mini_racer'
+gem 'impressionist'
