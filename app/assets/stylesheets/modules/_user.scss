@@ -3,10 +3,11 @@
   background-color:lightgray;
   padding:50px 200px;
   height: 100%;
+  text-align: center;
   &__page{
     background-color:white;
-    text-align: center;
     padding:20px 0;
+    border-radius: 10px;
     &__title{
       padding-bottom: 30px;
     }
@@ -15,14 +16,12 @@
         padding-bottom: 20px;
         .FormField__group{
           width: 50%;
-          border-radius: 10px;
         }
       }
       .actions{
         .SubmitBtn{
           width: 50%;
           background-color:skyblue;
-          border-radius: 10px;
         }
       }
     }
