@@ -5,6 +5,10 @@
         = @post.title
       .player__main__contents__name
         = link_to "投稿者：#{@post.user.name}", "/users/#{@post.user_id}", class: "LinkUser"
+        .player__main__contents__View
+          = "視聴回数：#{@post.impressionist_count}"
+          .player__main__contents__created_at
+            = "投稿日:#{@post.created_at.strftime('%Y/%m/%d %H:%M:%S')}"
       .player__main__contents__body
         = @post.body
       .player__main__contents__video
@@ -15,16 +19,21 @@
             = form.text_field :text, class: "input-text"
             %input{type:"submit", class:"form__submit", value:"投稿"}
         .player__main__contents__menus__content
-          %div{id: "like_buttons_#{@post.id}"}
+          %div.like{id: "like_buttons_#{@post.id}"}
             = render partial: "likes/like", locals: {post: @post}
-          %div{id: "list_buttons_#{@post.id}"}
+          %div.list_id{id: "list_buttons_#{@post.id}"}
             = render partial: "lists/list", locals: {post: @post}
           - if user_signed_in? && current_user.id == @post.user_id
-            = link_to icon('fas', 'trash-alt'),post_path(@post.id), method: :DELETE,class:"Btn"
-            = link_to icon('fas', 'edit'),edit_post_path(@post.id),method: :get , class: "UserLink"
+            .vVideo_delete
+              = link_to icon('fas', 'trash-alt'),post_path(@post.id), method: :DELETE,class:"DeleteBtn"
+              %p.arrow_box
+                削除する
+            .VideoEdit
+              = link_to icon('fas', 'edit'),edit_post_path(@post.id),method: :get , class: "UserLink"
+              %p.arrow_box
+                編集する
     .player__main__comments
-      コメント数：
-      #comment-count= @comments_count
+      #comment-count= "コメント数:#{@comments_count}"
       .player__main__comments__contents
         .CommentSide
           - @comments.each do |c|
@@ -33,14 +42,11 @@
                 = image_tag c.user.image.url, class:"image-icon",alt: "/assets/default-avatar.jpg" 
                 .CommentBody
                   .player__main__comments__contents__comments
-                    コメント：
-                    = c.text
+                    = "コメント:#{c.text}"
                   .player__main__comments__contents__user
-                    投稿者：
-                    = link_to c.user.name, "/users/#{c.user_id}", class: "LinkUser"
+                    = link_to "投稿者：#{c.user.name}", "/users/#{c.user_id}", class: "LinkUser"
                   .player__main__comments__contents__time
-                    投稿日：
-                    = c.created_at.strftime('%Y/%m/%d %H:%M:%S')
+                    = "投稿日#{c.created_at.strftime('%Y/%m/%d %H:%M:%S')}"
   .player__movie
     ほかの動画
     .player__movie__MoViseList
@@ -49,17 +55,14 @@
           = link_to post_path(post), class:".ListContens__video" do
             = video_tag post.video.to_s,:size => "200x150"
           .ListTitel
-            投稿者：
-            = link_to post.user.name, "/users/#{post.user_id}", class: "LinkUser"
+            = link_to "投稿者：#{post.user.name}", "/users/#{post.user_id}", class: "LinkUser"
             .ListTitel__time
-              投稿日：
-              = post.created_at.strftime('%Y/%m/%d')
+              = "投稿日：#{post.created_at.strftime('%Y/%m/%d')}"
             .ListTitel__commnet
-              コメント数：
-              = post.comments.count
+              = "コメント数：#{post.comments.count}"
             .ListTitel__like
-              いいね：
-              = post.likes.count
-            .ListTitel__list
-              マイリスト 
-              = post.lists.count
+              = "いいね:#{post.likes.count}"
+            .ListTitel__list 
+              = "マイリスト:#{post.lists.count}"
+            .ListTitel__views
+              =  "視聴回数:#{post.impressionist_count}"

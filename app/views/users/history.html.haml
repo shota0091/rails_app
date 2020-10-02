@@ -18,8 +18,10 @@
             title:
             = i.title
           .HistoryVideo-time
-            投稿日：
-            = i.created_at.strftime('%Y/%m/%d')
+            = "投稿日：#{i.created_at.strftime('%Y/%m/%d')}"
           .HistoryVideo-like
             = icon('fa','heart')
             = i.likes.count
+            .HistoryVideo-viwes
+              = icon('far','eye')
+              = i.impressionist_count

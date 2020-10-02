@@ -63,8 +63,8 @@ $(function(){
       $('.CommentSide').prepend(html)
       $('.input-text').val('');
       $('.form__submit').prop('disabled', false);
-
-
+      var count = $(".CommentSide").children().length;
+      $('#comment-count').text("コメント数:"+count);
     })
     .fail(function(){
       alert("メッセージ送信失敗しました");

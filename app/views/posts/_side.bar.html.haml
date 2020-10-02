@@ -1,26 +1,23 @@
 .wrapper__MenuBar
   %ul.wrapper__MenuBar__UserSide
-    %li.wrapper__MenuBar__UserSide__menu
+    .wrapper__MenuBar__UserSide__menu
       MENU
     %li.wrapper__MenuBar__UserSide__home
-      = link_to "/", class:"Btn" do
+      = link_to "/", class:"ListBtn" do
         = icon('fas', 'home')
-        %span<>
         home
     %li.wrapper__MenuBar__UserSide__account
-      = link_to "/users/#{current_user.id}", class:"Btn" do
+      = link_to "/users/#{current_user.id}", class:"ListBtn" do
         = icon('fas', 'user')
         = current_user.name
-        %span<>さん
+        さん
     %li.wrapper__MenuBar__UserSide__history
-      = link_to  "/users/#{current_user.id}/history", class:"Btn" do
+      = link_to  "/users/#{current_user.id}/history", class:"ListBtn" do
         = icon('fas', 'history')
-        %span<>
         = current_user.name
         さんの投稿動画
     %li.wrapper__MenuBar__UserSide__mylist
-      = link_to "/users/#{current_user.id}/mylist", class:"Btn" do
+      = link_to "/users/#{current_user.id}/mylist", class:"ListBtn" do
         = icon('fas', 'list')
-        %span<>
         = current_user.name
         さんのマイリス

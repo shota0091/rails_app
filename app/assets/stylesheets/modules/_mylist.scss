@@ -29,6 +29,12 @@
       .HistoryVideo-like{
         font-size: 15px;
         color:red;
+        display: flex;
+        justify-content: center;
+        .HistoryVideo-viwes{
+          padding-left: 10px;
+          color: black;
+        }
         }
     }
   }

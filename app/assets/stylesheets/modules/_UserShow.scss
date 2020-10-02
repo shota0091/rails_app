@@ -2,10 +2,11 @@
   display: flex;
   height: 70vh;
 }
+
+
 .UserPage{
   &__contents{
     display:flex;
-
     margin-top: 30px;
     padding-left: 30px;
     .UserImage{
@@ -21,7 +22,6 @@
       margin-left: 25px;
       text-align: center;
       &__CurrentUser{
-        width: 100%;
         display: flex;
         justify-content: space-between;
         text-align: center;
@@ -33,20 +33,63 @@
           margin-left: 10px;
           .EditBtn{
             font-size:17px;
+            
           }
         }
       }
       .UserProfile{
         text-align: start;
         padding-top: 25px;
-        margin-right: 250px;
-        border-top:1px solid red;
+        position:relative;
+        width:300px;
+        height:140px;
+        background:#5AE628;
+        padding:20px;
+        text-align:left;
+        color:#333333;
+        font-size:14px;
+        font-weight:bold;
+        border-radius:15px;
+        -webkit-border-radius:15px;
+        -moz-border-radius:15px;
+      
         &__UserBody{
           white-space: pre-wrap;
           overflow: scroll;
-          font-size:15px
+          font-size:15px;
+        }
+        &__history{
+          text-align: start;
+          margin-top: 20px;
+          .user_history{
+          text-decoration: none;
+          }
+        }
+        &__mylist{
+          text-align: start;
+          margin-top: 10px;
+          .user_mylist{
+            text-decoration: none;
+            }
         }
       }
+      .UserProfile:after{
+        border: solid transparent;
+        content:'';
+        height:0;
+        width:0;
+        pointer-events:none;
+        position:absolute;
+        border-color: rgba(90, 230, 40, 0);
+        border-top-width:20px;
+        border-bottom-width:20px;
+        border-left-width:28px;
+        border-right-width:28px;
+        margin-top: -20px;
+        border-right-color:#5AE628;
+        right:100%;
+        top:24%;
+    }
     }
   }
 }

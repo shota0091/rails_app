@@ -1,10 +1,10 @@
 .MemberRegister
+  %h1.log
+    TECH:VIDEO
+  %h6.text
+    動画を投稿しよう
   .MemberRegister__page
     .MemberRegister__page__title
-      %h1.log
-        TECH:VIDEO
-      %h6.text
-        動画を投稿しよう
     .MemberRegister__page__form
       = form_with model: @user, url: user_registration_path, id: 'new-user', class: 'new_user',local: true do |f|
         .FormField

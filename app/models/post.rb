@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   has_many :comments,dependent: :destroy
   has_many :likes,dependent: :destroy
   has_many :lists,dependent: :destroy
+  is_impressionable
 
   def self.search(search)
     if search != ""

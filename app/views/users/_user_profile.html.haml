@@ -4,23 +4,18 @@
       = image_tag @user.image.url,alt: "/assets/default.jpg", class: "image-icon" 
     %h6.UserName
       .UserName__CurrentUser
-        NAME:
-        = @user.name
-        .UserName__CurrentUser__id
-          USER ID:
-          = @user.id
+        = "NAME:#{@user.name}"
         .UserName__CurrentUser__Edit
           - if @user.id == current_user.id 
             = link_to icon('fa', 'cog'), edit_user_path,method: :get,class:"EditBtn"
       .UserProfile
-        %h3自己紹介
         %span.UserProfile__UserBody
           = @user.UserBody
       .UserProfile__history
-        = link_to "/users/#{@user.id}/history" do
+        = link_to "/users/#{@user.id}/history",class: "user_history" do
           = @user.name
           さんの投稿動画一覧
       .UserProfile__mylist
-        = link_to "/users/#{@user.id}/mylist" do
+        = link_to "/users/#{@user.id}/mylist",class: "user_mylist"do
           = @user.name
           さんのマイリスト一覧
