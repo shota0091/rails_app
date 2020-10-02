@@ -40,6 +40,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'sqlite3', '~>1.3.6', group: :development 
 end
 
 group :test do
@@ -48,6 +49,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'faker', "~> 2.8"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -59,4 +61,13 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 5.0.0.alpha1'
 gem "font-awesome-sass"
 gem 'carrierwave', '~> 2.0'
+<<<<<<< Updated upstream
 
+=======
+gem 'mini_magick'
+gem 'mini_racer'
+gem 'impressionist'
+gem 'rspec-rails', '~> 4.0.0.beta2'
+gem 'factory_bot_rails'
+gem 'pg'
+>>>>>>> Stashed changes

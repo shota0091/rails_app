@@ -1,24 +1,15 @@
 # README
+# TECH:VIDEO(Application name)
+  This is the first application created with ruby ​​on rails
+  The content is an application that can post videos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+  This application can post videos.
+  You can also communicate with the poster  and the user with likes and comments.
+  You can post videos up to 100MB.
+# DEMO
 
-Things you may want to cover:
+![demo](https://gyazo.com/af08a297cabad4979683bbb700074524)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Requirement
+Rails 6.0.3.3
