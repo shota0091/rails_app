@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     impressionist(@post, nil, unique: [:session_hash])
-    @random = Post.order("RAND()").limit(20)
+    @random = Post.limit(20)
     @comment = Comment.new
     @comments = @post.comments.includes(:user)
     @comments_count = Comment.where(post_id: @post.id).count
