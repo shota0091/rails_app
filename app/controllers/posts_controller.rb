@@ -11,9 +11,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path
-      else
-        render :new
+      redirect_to root_path
+    else
+      render :new
     end
   end
 
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     impressionist(@post, nil, unique: [:session_hash])
     @random = Post.limit(20)
     @comment = Comment.new
-    @comments = @post.comments.includes(:user)
+    @comments = @post.comments.includes(:user).order("created_at DESC")
     @comments_count = Comment.where(post_id: @post.id).count
   end
   
@@ -40,8 +40,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to posts_path(@post)
-      else
-        render :new
+    else
+      render :edit
     end
   end
 
