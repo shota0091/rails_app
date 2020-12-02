@@ -16,5 +16,18 @@ class Post < ApplicationRecord
     else
       Post.all
     end
+
+    def self.sort(selection)
+      case select
+      when 'new'
+        return all.order(created_at: :DESC)
+      when 'old'
+        return all.order(created_at: :ASC)
+      when 'likes'
+        return find(Like.group(:post_id).order(Arel.sql('count(post_id) desc')).pluck(:post_id))
+      when 'dislikes'
+        return find(Like.group(:post_id).order(Arel.sql('count(post_id) asc')).pluck(:post_id))
+      end
+    end
   end
 end

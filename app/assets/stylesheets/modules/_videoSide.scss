@@ -1,0 +1,57 @@
+.LinkUser{
+  text-decoration: none;
+  color:black;
+}
+.ListBtn{
+  text-decoration: none;
+  color: inherit;
+}
+.wrapper{
+  height: 100vh;
+  display: flex;
+  &__VideoSide{
+    width: 100%;
+    overflow: scroll;
+    &__contents{
+      display: inline-flex;
+      align-items: center;
+      padding-left: 10px;
+      width: 375px;
+      overflow-x: auto;
+      white-space: nowrap;
+      margin: 10px;
+      &__content{
+        padding-left: 10px;
+        .title{
+          font-weight: bold;
+          font-size:15px;
+        }
+        .name{
+          font-size:12px;
+        }
+        .created_at{
+          font-size:12px;
+        }
+        .commnet{
+          font-size: 10px;
+        }
+        .like{
+          font-size:10px;
+        }
+        .list{
+          font-size:10px;
+        }
+        .views{
+          font-size:10px;
+        }
+      }
+    }
+  }
+}
+
+    .pages{
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }

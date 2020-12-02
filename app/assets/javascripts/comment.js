@@ -6,15 +6,15 @@ $(function(){
     <img class="image-icon" alt="/assets/default.jpg" src="${comment.user_image_url}">
     <div class="CommentBody">
     <div class="player__main__comments__contents__comments">
-    コメント：
+    コメント:
     ${comment.text}
     </div>
     <div class="player__main__comments__contents__user">
-    投稿者：
+    投稿者:
     <a class="LinkUser" href="${comment.user_id}">${comment.user_name}</a>
     </div>
     <div class="player__main__comments__contents__time">
-    投稿日：
+    投稿日:
     ${comment.created_at}
     </div>
     </div>
@@ -23,18 +23,18 @@ $(function(){
     }else{
       let html = `
     <div class="player__main__comments__contents__image">
-    <img class="image-icon" alt="/assets/default.jpg" src="/assets/default.jpg">
+    <img class="image-icon" alt="/assets/default.jpg" src="app/assets/images/default.jpg">
     <div class="CommentBody">
     <div class="player__main__comments__contents__comments">
-    コメント：
+    コメント:
     ${comment.text}
     </div>
     <div class="player__main__comments__contents__user">
-    投稿者：
+    投稿者:
     <a class="LinkUser" href="${comment.user_id}">${comment.user_name}</a>
     </div>
     <div class="player__main__comments__contents__time">
-    投稿日：
+    投稿日:
     ${comment.created_at}
     </div>
     </div>

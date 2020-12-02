@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.includes(:user).order("created_at DESC")
+    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(9)
   end
 
   def new
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to root_path
+      redirect_to posts_path
     else
       render :new
     end
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    redirect_to root_path
+    redirect_to posts_path
   end
 
   def edit
@@ -50,6 +50,8 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.search(params[:keyword])
+    @posts = @posts.page(params[:page]).per(9)
+    @posts = Post.sort(selection)
   end
 
 private
