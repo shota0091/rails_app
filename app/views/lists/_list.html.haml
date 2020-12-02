@@ -1,0 +1,10 @@
+- if current_user.already_list?(post)
+  = link_to icon('fa', 'list-alt'),post_list_path(post_id: post.id, id: post.lists[0].id),class: "list", method: :delete,remote: true
+  %p.arrow_box
+    マイリスから削除
+  = @post.lists.count
+- else
+  = link_to icon('far', 'list-alt'),post_lists_path(@post),class: "list",method: :post,remote: true
+  %p.arrow_box
+    マイリスに登録
+  = @post.lists.count

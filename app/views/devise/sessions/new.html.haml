@@ -1,8 +1,8 @@
 .MemberRegister
+  %h1.log
+    TECH:VIDEO
   .MemberRegister__page
     .MemberRegister__page__title
-      %h1.log
-        TECH:VIDEO
     .MemberRegister__page__form
       = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f|
         .FormField

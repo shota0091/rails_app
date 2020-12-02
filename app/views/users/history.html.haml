@@ -1,0 +1,27 @@
+.wrapper
+  = render 'posts/side.bar'
+  .LogInUser 
+    = @user.name
+    さんの投稿動画
+    .LogInUser__contents
+      - @posts.each do |i|
+        .LogInUser__contents__list
+          .HistoryVideo-Video
+            = link_to post_path(i.id) do
+              = video_tag i.video.to_s,:size => "350x200"
+          .HistoryVideo-user
+            = link_to "/users/#{i.user.id}", class: "UserLink"do
+              = i.user.name
+              さん投稿
+              = link_to icon('fa', 'edit'),edit_post_path(i.id),method: :get , class: "UserLink"
+          .HistoryVideo-title
+            title:
+            = i.title
+          .HistoryVideo-time
+            = "投稿日：#{i.created_at.strftime('%Y/%m/%d')}"
+          .HistoryVideo-like
+            = icon('fa','heart')
+            = i.likes.count
+            .HistoryVideo-viwes
+              = icon('far','eye')
+              = i.impressionist_count

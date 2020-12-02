@@ -1,0 +1,30 @@
+.wrapper
+  = render 'posts/side.bar'
+  .LogInUser
+    = @user.name
+    さんのマイリスト
+    .LogInUser__contents
+      - @lists.each do |i|
+        .LogInUser__contents__list
+          .HistoryVideo-Video
+            = link_to post_path(i.post.id) do
+              = video_tag i.post.video.to_s,:size => "350x200"
+          .HistoryVideo-user
+            = link_to "/users/#{i.post.user.id}", class: "UserLink"do
+              = i.post.user.name
+              さん投稿
+              - if user_signed_in? && current_user.id == i.post.user_id
+                = link_to edit_post_path(i.post.id),method: :get , class: "UserLink"do
+                  = icon('fa', 'edit')
+          .HistoryVideo-title
+            title:
+            = i.post.title
+          .HistoryVideo-time
+            登録日：
+            = i.created_at.strftime('%Y/%m/%d')
+          .HistoryVideo-like
+            = icon('fa','heart')
+            = i.post.likes.count
+            .HistoryVideo-viwes
+              = icon('far','eye')
+              = i.post.impressionist_count

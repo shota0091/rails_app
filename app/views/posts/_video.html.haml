@@ -6,6 +6,21 @@
           = video_tag post.video.to_s, :size => "250x150"
         .wrapper__VideoSide__contents__content
           .wrapper__VideoSide__contents__content.title
-            = link_to post.title, post_path(post),class:"Btn"
+            = link_to "タイトル:#{post.title}", post_path(post),class:"LinkUser"
+          .wrapper__VideoSide__contents__content.name
+            = link_to "投稿者:#{post.user.name}", "/users/#{post.user_id}", class: "LinkUser"
           .wrapper__VideoSide__contents__content.created_at
+            投稿日：
             = post.created_at.strftime('%Y/%m/%d')
+          .wrapper__VideoSide__contents__content.commnet
+            コメント数：
+            = post.comments.count
+          .wrapper__VideoSide__contents__content.like
+            いいね：
+            = post.likes.count
+          .wrapper__VideoSide__contents__content.list
+            マイリスト 
+            = post.lists.count
+          .wrapper__VideoSide__contents__content.views
+            視聴回数
+            = post.impressionist_count

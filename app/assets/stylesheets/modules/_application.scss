@@ -1,6 +1,17 @@
 .Btn{
   text-decoration:none;
 }
+
+@mixin user {
+  text-decoration: none;
+  border:1px solid skyblue;
+  border-radius: 10px;
+  padding:10px;
+  background-color:skyblue;
+  margin-right: 10px;
+}
+
+
 .header{
   height: 70px;
   width: 100%;
@@ -19,29 +30,32 @@
       font-size: 20px;
     }
     &__SearchBox{
-      width: 50%;
+      width: 300px;
+      margin-left: auto;
+      @media(min-width: 1068px) {
+        width: 50%;
+        text-align:end ;
+        }
       .search-input{
         width: 80%;
       }
     }
   &__item{
-    width: 200px;
+    width: 300px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items:center;
+    @media(min-width: 1068px) {
+    width: 500px;
+    }
     &__send{
-      text-decoration: none;
-      border:1px solid skyblue;
-      border-radius: 10px;
-      padding:10px;
-      background-color:skyblue
+      @include user
     }
     &__outBtn{
-      text-decoration: none;
-      border:1px solid skyblue;
-      border-radius: 10px;
-      padding:10px;
-      background-color:skyblue
+      @include user
+    }
+    &__gusetBtn{
+      @include user
     }
   }
   }
@@ -74,8 +88,11 @@
     top:15%;
     left:5%;
     font-family: 'HanziPen SC',sans-serif;
-    font-size:70px;
+    font-size:30px;
     color:white;
+    @media(min-width: 1068px) {
+      font-size:70px;
+    }
   }
   &__image{
       width:100%;
@@ -101,7 +118,6 @@
       background-color: white;
       height: 200px;
       &__text{
-        
         font-size:100%;
         text-align: center;
         padding-top:15px;
