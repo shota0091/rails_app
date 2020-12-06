@@ -1,0 +1,30 @@
+
+.user-title{
+  margin-top:20px;
+  width: 500px;
+}
+
+.user-image{
+  cursor: pointer;
+  display: none;
+}
+
+.user-body{
+  margin-top:20px;
+  width: 500px;
+  height: 100px;
+  white-space: pre-wrap;
+}
+
+.ImgePreview{
+  margin-top: 10px;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 50%;
+  border:1px dashed lightslategray;
+  background-color:rgb(245, 245, 245);
+}

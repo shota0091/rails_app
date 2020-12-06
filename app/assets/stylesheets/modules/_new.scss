@@ -1,33 +1,72 @@
+@mixin requirement {
+  font-size:12px;
+  color:white;
+  background-color:red;
+  margin-left: 8px;
+  padding:0 4px;
+  border-radius: 2px;
+  display: inline-block;
+  line-height: 1.4em;
+}
+
+@mixin  thumbnail {
+  margin-top: 30px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 1em;
+  border:1px dashed lightslategray;
+  background-color:rgb(245, 245, 245);
+  
+}
 .form{
   background-color:lightgray;
+  height: 100vh;
   &__area{
-    height: 400px;
+    height: 100%;
     &__video{
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin: 20px 100px;
+      margin: 20px 100px 0;
+      overflow: scroll;
       background-color:white;
       border-radius: 10px;
-      &__title{
+      padding: 30px 0;
+      @media(min-width: 1068px){
+        margin: 20px 350px;
+        }
+      .preview{
+        @include thumbnail;
+        cursor:pointer;
+        height: 200px;
+      }
+      .thumbnail{
+        @include thumbnail
+      }
+      .TitleForm{
         margin-top:20px;
         width: 500px;
       }
-      &__body{
+      .BodyForm{
         margin-top:20px;
         width: 500px;
         height: 100px;
         white-space: pre-wrap;
       }
-      &__video{
+      .VideoForm{
         cursor: pointer;
-        margin:20px 0;
+        display: none;
+
       } 
-      &__send{
+      .send{
         margin-top:30px;
-        width: 300px;
+        width: 500px;
         background-color:skyblue;
         color:white;
+        border: 1px solid transparent;
       }
       &__caution{
         height: 70px;

@@ -1,23 +1,20 @@
 class UsersController < ApplicationController
+  before_action :set_user
 
 def show
-  @user = User.find(params[:id])
   @posts = @user.posts
 end
 
 def eidt
-  @user = User.find(params[:id])
-  if @user = current_user
-    render "edit"
+  if @user.id = current_user
   else
-    redirect_to users_path
+    render users_path
   end
 end
 
 def update
-  @user = User.find(params[:id])
   if @user.update(user_params)
-    redirect_to "/users/#{current_user.id}"
+    redirect_to "/users/#{current_user.id}",notice: 'ユーザー情報を更新しました'
   else
     render :edit
   end
@@ -25,21 +22,21 @@ end
 
 
 def mylist
-  @user = User.find(params[:id])
-
   @list = List.new
-  @lists = @user.lists.includes(:user)
+  @posts = @user.lists.includes(:user).page(params[:page]).per(3)
 end
 
 def history
-  @user = User.find(params[:id])
   @post = Post.new
-  @posts = @user.posts.includes(:user)
-
+  @posts = @user.posts.includes(:user).page(params[:page]).per(3)
 end
 
 private
   def user_params
     params.require(:user).permit(:name, :email, :image, :UserBody)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end

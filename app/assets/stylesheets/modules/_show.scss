@@ -77,25 +77,26 @@
         border-top: 1px solid red;
         padding:10px 0 0 10px;
         text-align: start;
-        &__image{
-          margin: 10px;
-          display: flex;
-          align-items: center;
-          background-color:lightgray;
-          border-radius:10px;
-          .image-icon{
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-          }
-            &__user{
-              font-size:12px;
+        .CommentSide{
+          .Content{
+            &__box{
+              margin: 15px;
+              display: flex;
+              .UserNmae{
+                font-weight: bold;
+                font-size: 17px;
+              }
+              .comments{
+
+              }
+              .time{
+                margin-left: auto;
+                font-size: 10px;
+                color:lightgrey;
+              }
             }
-            &__time{
-              font-size: 12px;
-              padding-bottom: 10px;
-            }
           }
+        }
       }
     }
   }

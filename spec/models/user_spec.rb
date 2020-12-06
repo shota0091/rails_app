@@ -1,59 +1,65 @@
 require 'rails_helper'
 describe User do
   describe '#create' do
-    #１、全て存在する時登録できる
-    it "is valid with a name, email, password, password_confirmation" do
+
+    it "全てが存在できれば登録できる" do
       user = build(:user)
       expect(user).to be_valid
     end
 
-    #2.nameがからの場合登録できない
-    it "is invalid without a name" do
-      user = build(:user, user: nil)
+    it "ニックネームがない場合登録できない" do
+      user = build(:user, name: "")
       user.valid?
-      expect(user.errors[:user]).to includ("can't be blank")
+      expect(user.errors[:name]).to include("を入力してください")
     end
 
-    #3.emailが空で登録できない
-    it "is invalid without a email" do
-      user = build(:user, email: nil)
+    it "メールアドレスがからの場合登録できない" do
+      user = build(:user, email: "")
       user.valid?
-      expect(user.errors[:email]).to includ("can't be blank")
+      expect(user.errors[:email]).to include("を入力してください")
     end
 
-    #4.passwordが空で登録できない
-    it "is invalid without a password" do
-      user = build(:user,  password: nil)
+    it "パスワードが空だと登録できない" do
+      user = build(:user,  password: "")
       user.valid?
-      expect(user.errors[:password]).to includ("can't be blank")
+      expect(user.errors[:password]).to include("を入力してください")
     end
 
-    #5.passwordがあってもpassword_confirmationが空では登録できない
-    it "is invalid without a password_confirmation although with a password" do
+    it "パスワードがあっても確認用のパスワードが空だと登録できない" do
       user = build(:user,  password_confirmation: "")
       user.valid?
-      expect(user.errors[:password_confirmation]).to includ("can't be blank")
+      expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
     end
 
-    # 6. 重複したemailが存在する場合登録できないこと
-    it "is invalid with a duplicate email address" do
+    it "メールアドレスがすでに存在する場合登録できない" do
       user = create(:user)
       another_user = build(:user, email: user.email)
       another_user.valid?
-      expect(another_user.errors[:email]).to include("has already been taken")
+      expect(another_user.errors[:email]).to include("はすでに存在します")
     end
 
-    # 7. passwordが6文字以上であれば登録できること
-    it "is valid with a password that has more than 6 characters " do
+    it "パスワードが６文字以上で登録できる" do
       user = build(:user, password: "000000", password_confirmation: "000000")
       expect(user).to be_valid
     end
 
-    # 8. passwordが5文字以下であれば登録できないこと
-    it "is invalid with a password that has less than 5 characters " do
+    it "パスワードが５文字以下なら登録できない" do
       user = build(:user, password: "00000", password_confirmation: "00000")
       user.valid?
-      expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
+      expect(user.errors[:password]).to include("は6文字以上で入力してください")
+    end
+  end
+
+    describe '#update' do
+      it "変更可能な項目があれば登録できる" do
+        user = build(:user)
+        expect(user).to be_valid
+    end
+
+    it "ニックネームがない場合登録できない" do
+      user = build(:user, name: "")
+      user.valid?
+      expect(user.errors[:name]).to include("を入力してください")
     end
   end
 end

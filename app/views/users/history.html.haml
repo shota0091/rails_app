@@ -1,8 +1,9 @@
 .wrapper
   = render 'posts/side.bar'
   .LogInUser 
-    = @user.name
-    さんの投稿動画
+    .LogInUser__name
+      = @user.name
+      さんの投稿動画
     .LogInUser__contents
       - @posts.each do |i|
         .LogInUser__contents__list
@@ -25,3 +26,6 @@
             .HistoryVideo-viwes
               = icon('far','eye')
               = i.impressionist_count
+    .pages
+      .pages__box
+        = paginate @posts

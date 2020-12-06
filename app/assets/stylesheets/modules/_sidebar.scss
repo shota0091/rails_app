@@ -1,0 +1,45 @@
+@mixin list {
+  padding:15px 10px;
+  font-size: 20px;
+  border-radius: 25px;
+  list-style: none;
+}
+
+@mixin menu{
+  font-size:25px;
+  padding-top: 20px;
+}
+
+.wrapper{
+  &__MenuBar{
+    width: 210px;
+    background-color:white;
+    border-right: 1px solid skyblue ;
+    overflow: scroll;
+    &__UserSide{
+      height: 50px;
+      display:flex;
+      align-items: center;
+      display:block;
+      list-style: none;
+    .menu{
+      @include menu;
+      &__home{
+        @include list
+      }
+      &__account{
+        @include list
+      }
+      &__history{
+        @include list
+      }
+      &__mylist{
+        @include list
+      }
+      &__video{
+        @include list
+      }
+    }
+    }
+  }
+}

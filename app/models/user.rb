@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: { message: 'はすでに存在します' }
   mount_uploader :image, ImageUploader
   has_many :posts,dependent: :destroy
   has_many :comments,dependent: :destroy
@@ -17,5 +17,12 @@ class User < ApplicationRecord
 
   def already_list?(post)
     self.lists.exists?(post_id: post.id)
+  end
+
+
+  def self.guest
+    find_or_create_by!(name: 'ゲスト',email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
   end
 end

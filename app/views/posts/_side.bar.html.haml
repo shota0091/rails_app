@@ -1,23 +1,26 @@
 .wrapper__MenuBar
-  %ul.wrapper__MenuBar__UserSide
-    .wrapper__MenuBar__UserSide__menu
+  .wrapper__MenuBar__UserSide
+    %ul.menu
       MENU
-    %li.wrapper__MenuBar__UserSide__home
-      = link_to "/", class:"ListBtn" do
-        = icon('fas', 'home')
-        home
-    %li.wrapper__MenuBar__UserSide__account
-      = link_to "/users/#{current_user.id}", class:"ListBtn" do
-        = icon('fas', 'user')
-        = current_user.name
-        さん
-    %li.wrapper__MenuBar__UserSide__history
-      = link_to  "/users/#{current_user.id}/history", class:"ListBtn" do
-        = icon('fas', 'history')
-        = current_user.name
-        さんの投稿動画
-    %li.wrapper__MenuBar__UserSide__mylist
-      = link_to "/users/#{current_user.id}/mylist", class:"ListBtn" do
-        = icon('fas', 'list')
-        = current_user.name
-        さんのマイリス
+      %li.menu__home
+        = link_to posts_path, class:"ListBtn" do
+          = icon('fas', 'home')
+          home
+      %li.menu__account
+        = link_to "/users/#{current_user.id}", class:"ListBtn" do
+          = icon('fas', 'user')
+          = current_user.name
+          さん
+      %li.menu__history
+        = link_to  "/users/#{current_user.id}/history", class:"ListBtn" do
+          = icon('fas', 'history')
+          投稿動画
+      %li.menu__mylist
+        = link_to "/users/#{current_user.id}/mylist", class:"ListBtn" do
+          = icon('fas', 'list')
+          マイリス
+      %li.menu__video
+        = link_to new_post_path, class:"ListBtn" do
+          = icon('fas', 'video')
+          動画投稿
+          

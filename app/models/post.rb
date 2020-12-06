@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  validates :video, presence: true
+  validates :video, presence: { message: 'を投稿してください' }
   validates :title, presence: true
   validates :body, presence: true
   mount_uploader :video, VideoUploader
@@ -9,6 +9,8 @@ class Post < ApplicationRecord
   has_many :likes,dependent: :destroy
   has_many :lists,dependent: :destroy
   is_impressionable
+
+
 
   def self.search(search)
     if search != ""
