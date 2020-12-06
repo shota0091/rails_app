@@ -4,6 +4,8 @@
   .form__area
     = form_with model: @post, local: true  do |f|
       .form__area__video
+        .FieldNmae
+          動画を投稿
         %div#previews
           .preview
             .preview__icon
@@ -14,10 +16,14 @@
         .error__message
           - if @post.errors.include?(:video)
             = @post.errors.full_messages_for(:video).first
+        .FieldNmae
+          動画タイトル
         = f.text_field :title, class:"TitleForm", placeholder:'動画タイトル'
         .error__message
           - if @post.errors.include?(:title)
             = @post.errors.full_messages_for(:title).first
+        .FieldNmae
+          動画説明文
         = f.text_area :body, class:"BodyForm", placeholder:"動画説明文を記入してください"
         .error__message
           - if @post.errors.include?(:body)

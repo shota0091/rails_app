@@ -7,10 +7,14 @@
         動画を編集しよう
         %div#previews
           = video_tag @post.video.to_s,class:"thumbnail" 
+        .FieldNmae
+          動画タイトル
         = f.text_field :title, class:"TitleForm", placeholder:'動画タイトル'
         .error__message
           - if @post.errors.include?(:title)
             = @post.errors.full_messages_for(:title).first
+        .FieldNmae
+          動画説明文
         = f.text_area :body, class:"BodyForm", placeholder:"動画説明文を記入してください"
         .error__message
           - if @post.errors.include?(:body)
