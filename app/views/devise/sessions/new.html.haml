@@ -6,10 +6,16 @@
       ログインをしよう
     .MemberRegister__page__form
       = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f|
+        .FieldNmae
+          メールアドレス
         .FormField
           = f.email_field :email,placeholder: "アドレスを入力", class: "FormField__group"
+        .FieldNmae
+          パスワード
         .FormField
           = f.password_field :password, autocomplete: "off",placeholder: "パスワードを入力", class: "FormField__group"
+        .FieldNmae
+          パスワード（確認用）
         .FormField
           = f.password_field :password_confirmation,autocomplete: "off",placeholder: "パスワードをもう一度入力", class: "FormField__group"
         .actions
