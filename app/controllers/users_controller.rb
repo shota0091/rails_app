@@ -14,7 +14,7 @@ end
 
 def update
   if @user.update(user_params)
-    redirect_to "/users/#{current_user.id}"
+    redirect_to "/users/#{current_user.id}",notice: 'ユーザー情報を更新しました'
   else
     render :edit
   end

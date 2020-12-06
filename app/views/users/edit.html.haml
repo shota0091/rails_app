@@ -12,5 +12,8 @@
                 プロフィール写真を選択
         = f.file_field :image, class:"user-image",accept: "image/png, image/jpeg"
         = f.text_field :name, class:"user-title", placeholder:'名前の変更'
+        .error__message
+          - if @user.errors.include?(:name)
+            = @user.errors.full_messages_for(:name).first
         = f.text_area :UserBody, class:"user-body",placeholder:"プロフィールを入力してください"
         = f.submit "send", class:"send"

@@ -8,7 +8,13 @@
         %div#previews
           = video_tag @post.video.to_s,class:"thumbnail" 
         = f.text_field :title, class:"TitleForm", placeholder:'動画タイトル'
+        .error__message
+          - if @post.errors.include?(:title)
+            = @post.errors.full_messages_for(:title).first
         = f.text_area :body, class:"BodyForm", placeholder:"動画説明文を記入してください"
+        .error__message
+          - if @post.errors.include?(:body)
+            = @post.errors.full_messages_for(:body).first
         = f.submit "send", class:"send"
         .form__area__video__caution
           動画のタイトル、説明文を編集できます

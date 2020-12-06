@@ -8,14 +8,34 @@
       ユーザー登録をしよう
     .MemberRegister__page__form
       = form_with model: @user, url: user_registration_path, id: 'new-user', class: 'new_user',local: true do |f|
+        .FieldNmae
+          name
         .FormField
           = f.text_field :name, autofocus: true,placeholder: "ニックネームを入力", class: "FormField__group"
+          .error__message
+            - if @user.errors.include?(:name)
+              = @user.errors.full_messages_for(:name).first
+        .FieldNmae
+          メールアドレス
         .FormField
           = f.email_field :email,placeholder: "アドレスを入力", class: "FormField__group"
+          .error__message  
+            - if @user.errors.include?(:email)
+              = @user.errors.full_messages_for(:email).first
+        .FieldNmae
+          パスワード
         .FormField
           = f.password_field :password,autocomplete: "off",placeholder: "パスワードを入力", class: "FormField__group"
+          .error__message
+            - if @user.errors.include?(:password)
+              = @user.errors.full_messages_for(:password).first
+        .FieldNmae
+          パスワード（確認用）
         .FormField
-          = f.password_field :password,autocomplete: "off",placeholder: "パスワードをもう一度入力", class: "FormField__group"
+          = f.password_field :password_confirmation,autocomplete: "off",placeholder: "パスワードをもう一度入力", class: "FormField__group"
+          .error__message
+            - if @user.errors.include?(:password_confirmation)
+              = @user.errors.full_messages_for(:password_confirmation).first
         .actions
           = f.submit "Sign up", class: "SubmitBtn"
         .GuestLogIn

@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path
+      redirect_to posts_path,notice: '動画を投稿しました'
     else
       render :new
     end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   def destroy
 
     @post.destroy
-    redirect_to posts_path
+    redirect_to posts_path,notice: '動画を削除しました'
   end
 
   def edit
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   def update
 
     if @post.update(post_params)
-      redirect_to posts_path(@post)
+      redirect_to posts_path(@post),notice: '動画を更新しました'
     else
       render :edit
     end

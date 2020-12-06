@@ -10,6 +10,8 @@
           = f.email_field :email,placeholder: "アドレスを入力", class: "FormField__group"
         .FormField
           = f.password_field :password, autocomplete: "off",placeholder: "パスワードを入力", class: "FormField__group"
+        .FormField
+          = f.password_field :password_confirmation,autocomplete: "off",placeholder: "パスワードをもう一度入力", class: "FormField__group"
         .actions
           = f.submit "Sign up", class: "SubmitBtn"
     .MemberRegister__page__SignIn

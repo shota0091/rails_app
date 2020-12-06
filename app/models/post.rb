@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  validates :video, presence: true
+  validates :video, presence: { message: 'を投稿してください' }
   validates :title, presence: true
   validates :body, presence: true
   mount_uploader :video, VideoUploader
