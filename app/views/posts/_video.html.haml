@@ -1,8 +1,4 @@
 .wrapper__VideoSide
-  = form_with model: @post, url:  search_posts_path, method: :get, local: true do |form|
-    = form.select :keyword, [ ['投稿が新しい順', 'new'],['投稿が古い順', 'old'],['いいねが多い順', 'likes'],['いいねが少ない順', 'dislikes'],]
-    = form.submit
-
   %h1 投稿動画一覧
   - @posts.each do |post|
     .wrapper__VideoSide__contents

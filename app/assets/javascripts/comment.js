@@ -1,46 +1,19 @@
 $(function(){
   function buildHTML(comment){
-    if ( comment.user_image_url ) {
-    let html = `
-    <div class="player__main__comments__contents__image">
-    <img class="image-icon" alt="/assets/default.jpg" src="${comment.user_image_url}">
-    <div class="CommentBody">
-    <div class="player__main__comments__contents__comments">
-    コメント:
-    ${comment.text}
-    </div>
-    <div class="player__main__comments__contents__user">
-    投稿者:
-    <a class="LinkUser" href="${comment.user_id}">${comment.user_name}</a>
-    </div>
-    <div class="player__main__comments__contents__time">
-    投稿日:
-    ${comment.created_at}
-    </div>
-    </div>
-    </div>`
+    let html = `<div class="Content">
+                  <div class="Content__box">
+                    <div class="UserNmae">
+                      <a class="LinkUser" href="${comment.user_id}">${comment.user_name}:</a>
+                    </div>
+                    <div class="comments">
+                    ${comment.text}
+                    </div>
+                    <div class="time">
+                    ${comment.created_at}
+                    </div>
+                  </div>
+                </div>`
     return html;
-    }else{
-      let html = `
-    <div class="player__main__comments__contents__image">
-    <img class="image-icon" alt="/assets/default.jpg" src="app/assets/images/default.jpg">
-    <div class="CommentBody">
-    <div class="player__main__comments__contents__comments">
-    コメント:
-    ${comment.text}
-    </div>
-    <div class="player__main__comments__contents__user">
-    投稿者:
-    <a class="LinkUser" href="${comment.user_id}">${comment.user_name}</a>
-    </div>
-    <div class="player__main__comments__contents__time">
-    投稿日:
-    ${comment.created_at}
-    </div>
-    </div>
-    </div>`
-    return html;
-    }
   };
 
 
@@ -48,7 +21,6 @@ $(function(){
     e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
-    var countUpValue = 0;
 
     $.ajax({
       url: url,

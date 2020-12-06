@@ -1,4 +1,10 @@
 ja:
+  activerecord:
+    attributes:
+      post:
+        body: "動画内容"
+        title: "動画タイトル"
+        video: "動画"
   views:
     pagination:
       first: "&laquo; 最初"
@@ -6,7 +12,6 @@ ja:
       previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "..."
-  activerecord:
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

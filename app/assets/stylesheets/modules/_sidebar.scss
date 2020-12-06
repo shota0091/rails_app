@@ -1,6 +1,5 @@
 @mixin list {
-  padding:15px 0;
-  margin-right: 10px;
+  padding:15px 10px;
   font-size: 20px;
   border-radius: 25px;
   list-style: none;
@@ -37,12 +36,9 @@
       &__mylist{
         @include list
       }
-    }
-  .follow{
-    @include menu;
-    &__name{
-      @include list
-      } 
+      &__video{
+        @include list
+      }
     }
     }
   }

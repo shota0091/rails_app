@@ -37,16 +37,14 @@
       .player__main__comments__contents
         .CommentSide
           - @comments.each do |c|
-            .Comment__image
-              .player__main__comments__contents__image
-                = image_tag c.user.image.url, class:"image-icon",alt: "/assets/default-avatar.jpg" 
-                .CommentBody
-                  .player__main__comments__contents__comments
-                    = "コメント:#{c.text}"
-                  .player__main__comments__contents__user
-                    = link_to "投稿者：#{c.user.name}", "/users/#{c.user_id}", class: "LinkUser"
-                  .player__main__comments__contents__time
-                    = "投稿日#{c.created_at.strftime('%Y/%m/%d %H:%M:%S')}"
+            .Content
+              .Content__box
+                .UserNmae
+                  = link_to "#{c.user.name}:", "/users/#{c.user_id}", class: "LinkUser"
+                .comments
+                  = c.text
+                .time
+                  = c.created_at.strftime('%Y/%m/%d %H:%M:%S')
   .player__movie
     ほかの動画
     .player__movie__MoViseList

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post,only: [:show, :destroy,:edit,:update]
 
   def index
     @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(9)
@@ -11,14 +12,14 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path
+      redirect_to posts_path,notice: '動画を投稿しました'
     else
       render :new
     end
   end
 
   def show
-    @post = Post.find(params[:id])
+
     impressionist(@post, nil, unique: [:session_hash])
     @random = Post.limit(20)
     @comment = Comment.new
@@ -27,19 +28,19 @@ class PostsController < ApplicationController
   end
   
   def destroy
-    post = Post.find(params[:id])
-    post.destroy
-    redirect_to posts_path
+
+    @post.destroy
+    redirect_to posts_path,notice: '動画を削除しました'
   end
 
   def edit
-    @post = Post.find(params[:id])
+
   end
 
   def update
-    @post = Post.find(params[:id])
+
     if @post.update(post_params)
-      redirect_to posts_path(@post)
+      redirect_to posts_path(@post),notice: '動画を更新しました'
     else
       render :edit
     end
@@ -51,11 +52,13 @@ class PostsController < ApplicationController
   def search
     @posts = Post.search(params[:keyword])
     @posts = @posts.page(params[:page]).per(9)
-    @posts = Post.sort(selection)
   end
 
 private
   def post_params
     params.require(:post).permit(:title, :body, :video).merge(user_id: current_user.id)
+  end
+  def set_post
+    @post = Post.find(params[:id])
   end
 end

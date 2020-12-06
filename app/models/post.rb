@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  validates :video, presence: true
+  validates :video, presence: { message: 'を投稿してください' }
   validates :title, presence: true
   validates :body, presence: true
   mount_uploader :video, VideoUploader
@@ -10,24 +10,13 @@ class Post < ApplicationRecord
   has_many :lists,dependent: :destroy
   is_impressionable
 
+
+
   def self.search(search)
     if search != ""
       Post.where('body LIKE(?) or title LIKE(?)', "%#{search}%","%#{search}%")
     else
       Post.all
-    end
-
-    def self.sort(selection)
-      case select
-      when 'new'
-        return all.order(created_at: :DESC)
-      when 'old'
-        return all.order(created_at: :ASC)
-      when 'likes'
-        return find(Like.group(:post_id).order(Arel.sql('count(post_id) desc')).pluck(:post_id))
-      when 'dislikes'
-        return find(Like.group(:post_id).order(Arel.sql('count(post_id) asc')).pluck(:post_id))
-      end
     end
   end
 end

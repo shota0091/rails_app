@@ -14,7 +14,7 @@ end
 
 def update
   if @user.update(user_params)
-    redirect_to "/users/#{current_user.id}"
+    redirect_to "/users/#{current_user.id}",notice: 'ユーザー情報を更新しました'
   else
     render :edit
   end
@@ -23,12 +23,12 @@ end
 
 def mylist
   @list = List.new
-  @lists = @user.lists.includes(:user)
+  @posts = @user.lists.includes(:user).page(params[:page]).per(3)
 end
 
 def history
   @post = Post.new
-  @posts = @user.posts.includes(:user)
+  @posts = @user.posts.includes(:user).page(params[:page]).per(3)
 end
 
 private

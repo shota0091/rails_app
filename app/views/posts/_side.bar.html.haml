@@ -19,9 +19,8 @@
         = link_to "/users/#{current_user.id}/mylist", class:"ListBtn" do
           = icon('fas', 'list')
           マイリス
-    %ul.follow
-      フォローリスト
-      %li.follow__name
-        = link_to "/users/#{current_user.id}/mylist", class:"ListBtn" do
-          = icon('fas', 'list')
-          ブログ
+      %li.menu__video
+        = link_to new_post_path, class:"ListBtn" do
+          = icon('fas', 'video')
+          動画投稿
+          

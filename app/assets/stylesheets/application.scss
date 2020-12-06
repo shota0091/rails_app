@@ -1,5 +1,4 @@
 @import "bootstrap";
-@import "posts";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "modules/application";
@@ -9,4 +8,6 @@
 @import "modules/_user";
 @import "modules/_UserShow";
 @import "modules/mylist";
-@import "modules/sidebar"
+@import "modules/sidebar";
+@import "modules/user-edit";
+@import "modules/flash"

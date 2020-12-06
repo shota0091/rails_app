@@ -15,9 +15,6 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get 'list'
-      get 'terms'
-      get 'info'
-      get 'news'
       get 'search'
     end
     resources :comments, only: :create

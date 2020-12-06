@@ -6,8 +6,9 @@
       .UserName__CurrentUser
         = "NAME:#{@user.name}"
         .UserName__CurrentUser__Edit
-          - if @user.id == current_user.id 
-            = link_to icon('fa', 'cog'), edit_user_path,method: :get,class:"EditBtn"
+          - if @user.id == current_user.id
+            = link_to icon('fa', 'cog')+"ユーザー情報を編集する", edit_user_path,method: :get,class:"EditBtn"
+              
       .UserProfile
         %span.UserProfile__UserBody
           = @user.UserBody
