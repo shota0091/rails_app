@@ -19,7 +19,6 @@ class PostsController < ApplicationController
   end
 
   def show
-
     impressionist(@post, nil, unique: [:session_hash])
     @random = Post.limit(20)
     @comment = Comment.new
