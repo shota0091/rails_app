@@ -5,22 +5,22 @@
     動画を投稿しよう
   .MemberRegister__page
     .MemberRegister__page__title
+      ユーザー登録をしよう
     .MemberRegister__page__form
       = form_with model: @user, url: user_registration_path, id: 'new-user', class: 'new_user',local: true do |f|
         .FormField
-          = f.text_field :name, autofocus: true,placeholder: "name", class: "FormField__group"
-
+          = f.text_field :name, autofocus: true,placeholder: "ニックネームを入力", class: "FormField__group"
         .FormField
-          = f.email_field :email,placeholder: "email address", class: "FormField__group"
-
+          = f.email_field :email,placeholder: "アドレスを入力", class: "FormField__group"
         .FormField
-          = f.password_field :password,autocomplete: "off",placeholder: "password", class: "FormField__group"
-
+          = f.password_field :password,autocomplete: "off",placeholder: "パスワードを入力", class: "FormField__group"
         .FormField
-          = f.password_field :password,autocomplete: "off",placeholder: "one more password", class: "FormField__group"
-
+          = f.password_field :password,autocomplete: "off",placeholder: "パスワードをもう一度入力", class: "FormField__group"
         .actions
           = f.submit "Sign up", class: "SubmitBtn"
+        .GuestLogIn
+          %button.GuestLogIn__btn
+            = link_to "ゲストログイン",users_guest_sign_in_path, method: :post,class:"link_Btn"
 
     .MemberRegister__page__SignIn
       アカウントお持ちの方

@@ -19,6 +19,7 @@ class User < ApplicationRecord
     self.lists.exists?(post_id: post.id)
   end
 
+
   def self.guest
     find_or_create_by!(name: 'ゲスト',email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64

@@ -4,10 +4,14 @@
   padding:50px 200px;
   height: 100%;
   text-align: center;
+
   &__page{
     background-color:white;
     padding:20px 0;
     border-radius: 10px;
+    @media(min-width: 1068px){
+      margin: 0px 200px;
+      }
     &__title{
       padding-bottom: 30px;
     }
@@ -22,6 +26,21 @@
         .SubmitBtn{
           width: 50%;
           background-color:skyblue;
+          border: 1px solid transparent;
+          color:white
+        }
+      }
+      .GuestLogIn{
+        margin-top: 20px;
+        &__btn{
+          
+          width: 50%;
+          background-color:skyblue;
+          border: 1px solid transparent;
+          .link_Btn{
+            color: white;
+            text-decoration: none;
+          }
         }
       }
     }

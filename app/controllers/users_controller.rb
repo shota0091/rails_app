@@ -23,12 +23,12 @@ end
 
 def mylist
   @list = List.new
-  @lists = @user.lists.includes(:user)
+  @posts = @user.lists.includes(:user).page(params[:page]).per(3)
 end
 
 def history
   @post = Post.new
-  @posts = @user.posts.includes(:user)
+  @posts = @user.posts.includes(:user).page(params[:page]).per(3)
 end
 
 private

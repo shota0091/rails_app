@@ -4,8 +4,13 @@
   .form__area
     = form_for(current_user) do |f|
       .form__area__video
-        = f.text_field :name, class:"form__area__video__title", placeholder:'名前の変更'
-        = f.text_area :UserBody, class:"form__area__video__body",placeholder:"プロフィールを入力してください"
-        プロフィール写真を選択
-        = f.file_field :image, class:"form__area__video__video"
-        = f.submit "send", class:"form__area__video__send"
+        %div#previews
+          .ImgePreview
+            .ImgePreview__icon
+              = icon('fas', 'video')
+              .ImgePreview__text
+                プロフィール写真を選択
+        = f.file_field :image, class:"user-image",accept: "image/png, image/jpeg"
+        = f.text_field :name, class:"user-title", placeholder:'名前の変更'
+        = f.text_area :UserBody, class:"user-body",placeholder:"プロフィールを入力してください"
+        = f.submit "send", class:"send"
