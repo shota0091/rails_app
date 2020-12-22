@@ -90,10 +90,8 @@ VSCode
 |Column|Type|Options|
 |-------|-----|-------|
 |text|text||
-|post|references|foreign_key: true
-|
-|user|references|foreign_key: true
-|
+|post|references|foreign_key: true|
+|user|references|foreign_key: true|
 
 - belongs_to :user
 - belongs_to :post
@@ -102,10 +100,8 @@ VSCode
 |Column|Type|Options|
 |-------|-----|-------|
 |like|integer||
-|post|references|foreign_key: true
-|
-|user|references|foreign_key: true
-|
+|post|references|foreign_key: true|
+|user|references|foreign_key: true|
 
 - belongs_to :user
 - belongs_to :post
@@ -114,10 +110,8 @@ VSCode
 |Column|Type|Options|
 |-------|-----|-------|
 |list|integer||
-|post|references|foreign_key: true
-|
-|user|references|foreign_key: true
-|
+|post|references|foreign_key: true|
+|user|references|foreign_key: true|
 
 - belongs_to :user
 - belongs_to :post
